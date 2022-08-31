@@ -13,13 +13,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ProyectosComponent } from './Components/proyectos/proyectos.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { TableComponent } from './Components/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
     EstudiantesComponent,
     ProyectosComponent,
-    MenuComponent
+    MenuComponent,
+    DashboardComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +40,13 @@ import { MenuComponent } from './Components/menu/menu.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
