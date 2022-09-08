@@ -11,5 +11,7 @@ export class EstudiantesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-estudiante = "Hola mi Zorro"
+  estudiante = ""
 }
+
+

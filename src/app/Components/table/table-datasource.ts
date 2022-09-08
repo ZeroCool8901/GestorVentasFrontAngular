@@ -8,30 +8,18 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export interface TableItem {
   name: string;
   id: number;
+  nameClient: string;
+  lastNameClient: string;
+  address: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: TableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  { id: 1, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 2, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 3, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 4, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 5, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
 ];
 
 /**
@@ -59,7 +47,7 @@ export class TableDataSource extends DataSource<TableItem> {
       // stream for the data-table to consume.
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          return this.getPagedData(this.getSortedData([...this.data ]));
+          return this.getPagedData(this.getSortedData([...this.data]));
         }));
     } else {
       throw Error('Please set the paginator and sort on the data source before connecting.');
@@ -70,7 +58,7 @@ export class TableDataSource extends DataSource<TableItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect(): void {}
+  disconnect(): void { }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
