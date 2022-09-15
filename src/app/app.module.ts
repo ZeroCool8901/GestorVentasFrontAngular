@@ -26,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClienteComponent } from './Components/cliente/cliente.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     DashboardComponent,
     TableComponent,
-    FormularioComponent
+    FormularioComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
