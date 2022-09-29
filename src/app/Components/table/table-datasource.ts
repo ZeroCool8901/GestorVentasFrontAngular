@@ -6,7 +6,7 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
 export interface TableItem {
-  name: string;
+ 
   id: number;
   nameClient: string;
   lastNameClient: string;
@@ -15,11 +15,11 @@ export interface TableItem {
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: TableItem[] = [
-  { id: 1, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
-  { id: 2, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
-  { id: 3, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
-  { id: 4, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
-  { id: 5, name: 'ConstruGas', nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 1, nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 2, nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 3, nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 4, nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
+  { id: 5, nameClient: 'Juan', lastNameClient: 'Rodriguez', address: 'Cll 42 sur' },
 ];
 
 /**
@@ -85,7 +85,7 @@ export class TableDataSource extends DataSource<TableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
+        case 'name': return compare(a.nameClient, b.nameClient, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }

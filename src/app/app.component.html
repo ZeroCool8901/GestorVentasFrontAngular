@@ -1,1 +1,10 @@
-<app-menu></app-menu>
+<div *ngIf="login==false">
+    <app-login></app-login>
+</div>
+
+<div *ngIf="login==true">
+    <app-menu></app-menu>
+</div>
+
+
+
