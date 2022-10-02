@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+  import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,10 +12,10 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ClienteComponent implements OnInit{
   dataSource: MatTableDataSource<any>;
-  constructor(public service:ApiService){
+  constructor(public service:ApiService, public router: Router){
     this.dataSource = new MatTableDataSource()
-  } /*public router: Router - */
-  public displayedColumns: String[];
+  } /* - */
+  public displayedColumns: string[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -23,7 +23,7 @@ export class ClienteComponent implements OnInit{
 
 
   redirectFormClient() {
-    /*this.router.navigate(['/FormularioCliente'])*/
+    this.router.navigate(['/FormularioCliente'])
   }
 
   ngOnInit(): void{
@@ -51,7 +51,7 @@ export class ClienteComponent implements OnInit{
   public async get(){
     await this.service.getAll("Clients").then((res)=>{
       for (let index = 0; index < res.length; index ++){
-        this.loadTable([res][index])
+        this.loadTable([res[index]])
       }        
       this.dataSource.data = res;
       this.dataSource.paginator = this.paginator;
