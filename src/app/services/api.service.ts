@@ -26,7 +26,7 @@ export class ApiService {
   }
 
   Post(controller: String, Body: any) {
-    return this.http.post(Body, this.url + controller).subscribe((res) => {
+    return this.http.post(this.url + controller, Body).subscribe((res) => {
 
     })
   }

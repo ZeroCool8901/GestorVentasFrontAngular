@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { switchAll } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-client',
@@ -37,13 +40,30 @@ export class FormClientComponent {
     {name: 'Gas Natural del Cesar S.A ESP', abbreviation: 'GNC'}
   ];
 
-  constructor(private fb: FormBuilder, public router: Router) {}
+  constructor(private fb: FormBuilder, public router: Router, public service:ApiService) {}
 
   redirectListClient(){
     this.router.navigate(['/Cliente'])
   }
   
   onSubmit(): void {
-    alert('Thanks!');
+    const Client= {
+    name: this.addressForm.get('firstName')?.value,
+    lastName: this.addressForm.get('lastName')?.value,
+    address: this.addressForm.get('address')?.value,
+    cel: this.addressForm.get('phone')?.value,
+    identificationType: this.addressForm.get('documentType')?.value,
+    identificationNumber: this.addressForm.get('document')?.value,
+
+    }
+    this.service.Post('Clients', Client);
+    Swal.fire({
+      title: "Registro realizado",
+      confirmButtonText: "Aceptar",
+  });
+
+
   }
+
+
 }
