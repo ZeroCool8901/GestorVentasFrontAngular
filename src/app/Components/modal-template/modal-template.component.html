@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Crear Usuario</h1>
+<div mat-dialog-content>
+    <div *ngIf = "titulo=='Clientes'"></div>
+  <app-form-client></app-form-client>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Enviar</button>
+</div>

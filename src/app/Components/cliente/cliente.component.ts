@@ -4,6 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalTemplateComponent } from '../modal-template/modal-template.component';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-cliente',
@@ -12,7 +15,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ClienteComponent implements OnInit{
   dataSource: MatTableDataSource<any>;
-  constructor(public service:ApiService, public router: Router){
+  constructor(public service:ApiService, public router: Router, public dialog: MatDialog, public modalservice:ModalService){
     this.dataSource = new MatTableDataSource()
   } /* - */
   public displayedColumns: string[];
@@ -22,8 +25,12 @@ export class ClienteComponent implements OnInit{
  
 
 
-  redirectFormClient() {
-    this.router.navigate(['/FormularioCliente'])
+  openDialog() {
+    this.modalservice.titulo = "Cliente"
+    this.dialog.open(ModalTemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    })
   }
 
   ngOnInit(): void{

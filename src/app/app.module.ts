@@ -31,6 +31,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ArtefactoComponent } from './Components/artefacto/artefacto.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalTemplateComponent } from './Components/modal-template/modal-template.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ClienteComponent,
     FormClientComponent,
     LoginComponent,
-    ArtefactoComponent
+    ArtefactoComponent,
+    ModalTemplateComponent
     
   ],
   imports: [
@@ -66,7 +69,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
