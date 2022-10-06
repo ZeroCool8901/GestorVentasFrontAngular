@@ -31,6 +31,14 @@ import { LoginComponent } from './Components/login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ArtefactoComponent } from './Components/artefacto/artefacto.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContratistaComponent } from './contratista/contratista.component';
+import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
+import { VentaComponent } from './venta/venta.component';
+import { ServicioComponent } from './servicio/servicio.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { ModaltemplateComponent } from './Components/modaltemplate/modaltemplate.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormArticleComponent } from './Components/artefacto/form-article/form-article.component';
 
 @NgModule({
   declarations: [
@@ -42,10 +50,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ClienteComponent,
     FormClientComponent,
     LoginComponent,
-    ArtefactoComponent
+    ArtefactoComponent,
+    ContratistaComponent,
+    CuentaBancariaComponent,
+    VentaComponent,
+    ServicioComponent,
+    UsuarioComponent,
+    ModaltemplateComponent,
+    FormArticleComponent
     
   ],
   imports: [
+    MatDialogModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

@@ -7,25 +7,6 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Sociedad" formControlName="society">
-              <mat-option *ngFor="let state of society" [value]="state.abbreviation">
-                {{ state.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Cuenta Contrato" formControlName="count">
-            <mat-error *ngIf="addressForm.controls['count'].hasError('required')">
-              Este campo es <strong>Obligatorio</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
             <mat-select placeholder="Tipo de documento" formControlName="documentType">
               <mat-option *ngFor="let state of documentType" [value]="state.abbreviation">
                 {{ state.name }}
@@ -74,35 +55,17 @@
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Municipio" formControlName="city">
-            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
-              Este campo es <strong>Obligatorio</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
             <input matInput placeholder="Telefono" formControlName="phone">
             <mat-error *ngIf="addressForm.controls['phone'].hasError('required')">
               Este campo es <strong>Obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="e-mail" formControlName="email">
-            <mat-error *ngIf="addressForm.controls['email'].hasError('required')">
-              Este campo es <strong>Obligatorio</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
       </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button mat-raised-button color="primary" (click)="redirectListClient()">Volver</button>
+      </mat-card-actions>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Guardar</button>
-      <button mat-raised-button color="primary" (click)="redirectListClient()">Volver</button>
-    </mat-card-actions>
   </mat-card>
 </form>

@@ -6,6 +6,11 @@ import { FormularioComponent } from './Components/formulario/formulario.componen
 import { ClienteComponent } from './Components/cliente/cliente.component';
 import { FormClientComponent } from './Components/cliente/form-client/form-client.component';
 import { ArtefactoComponent } from './Components/artefacto/artefacto.component';
+import { ContratistaComponent } from './contratista/contratista.component';
+import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
+import { ServicioComponent } from './servicio/servicio.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { VentaComponent } from './venta/venta.component';
 
 const routes: Routes = [
   {path:'Dashboard', component:DashboardComponent},
@@ -13,7 +18,12 @@ const routes: Routes = [
   {path:'Formulario', component:FormularioComponent},
   {path:'FormularioCliente', component:FormClientComponent},
   {path:'Cliente', component:ClienteComponent},
-  {path:'Artefacto', component:ArtefactoComponent}
+  {path:'Artefacto', component:ArtefactoComponent},
+  {path:'Contratista', component:ContratistaComponent},
+  {path:'Cuenta Bancaria', component:CuentaBancariaComponent},
+  {path:'Servicio', component:ServicioComponent},
+  {path:'Usuario', component:UsuarioComponent},
+  {path:'Venta', component:VentaComponent}
 ];
 
 

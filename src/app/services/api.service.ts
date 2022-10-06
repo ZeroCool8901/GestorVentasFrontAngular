@@ -26,25 +26,26 @@ export class ApiService {
   }
 
   Post(controller: String, Body: any) {
-    return this.http.post(Body, this.url + controller).subscribe((res) => {
-
+    return this.http.post(this.url + controller, Body).subscribe((res) => {
+      
     })
   }
 
   Put(controller: String, Body: any, Id: String) {
     return this.http.put(Body, this.url + controller).subscribe((res) => {
+      
     })
   }
 
-  Delete(controller:String, Id:String){
+  async Delete(controller:String, Id:String){
     return this.http.delete(this.url + controller + "/" + Id).subscribe((res)=>{
-
+      
     })
   }
 
   deleteById(controller: string, id: number) {
     return this.http.delete(this.url + controller + "/" + id).subscribe((res) => {
-      
+ 
     })
   }
 

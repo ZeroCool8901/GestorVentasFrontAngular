@@ -2,37 +2,30 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
-import {MatDialog} from '@angular/material/dialog';
-import { ModaltemplateComponent } from '../modaltemplate/modaltemplate.component';
-import { ModalService } from 'src/app/services/modal.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-cliente',
-  templateUrl: './cliente.component.html',
-  styleUrls: ['./cliente.component.css']
+  selector: 'app-usuario',
+  templateUrl: './usuario.component.html',
+  styleUrls: ['./usuario.component.css']
 })
-export class ClienteComponent implements OnInit{
+export class UsuarioComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
-  constructor(public service:ApiService, public router: Router, public dialog: MatDialog, public modalservice: ModalService){
+  constructor(public service:ApiService) { 
     this.dataSource = new MatTableDataSource()
-  } /*public router: Router - */
-  public displayedColumns: string[];
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
- 
-  redirectFormClient() {
-    this.router.navigate(['/FormularioCliente'])
   }
 
-  ngOnInit(): void{
-  this.get();
+  public displayedColumns: string[];
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  
+  ngOnInit(): void {
+    this.get();
   }
 
   public async get(){
-    await this.service.getAll("Clients").then((res)=>{
+    await this.service.getAll("Users").then((res)=>{
       for (let index = 0; index < res.length; index ++){
         this.loadTable([res[index]])
       }        
@@ -59,19 +52,4 @@ export class ClienteComponent implements OnInit{
     }
   }
 
-  openDialog() {
-    this.modalservice.titulo="cliente"
-    this.dialog.open(ModaltemplateComponent,{
-      width: 'auto',
-      height: 'auto'
-    });
-  }
-  
-
 }
-
-
-
-
-
-

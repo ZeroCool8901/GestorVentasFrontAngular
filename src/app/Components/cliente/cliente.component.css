@@ -12,3 +12,16 @@
  margin-left: 1.5rem;
  color: #0e335b;
 }
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 5%;
+  }

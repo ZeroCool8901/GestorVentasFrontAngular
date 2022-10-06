@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
     submit() {
       if (this.form.valid) {
         this.submitEM.emit(this.form.value);
+        
       }
+      
     }
 
     @Input() error: string | null | undefined;

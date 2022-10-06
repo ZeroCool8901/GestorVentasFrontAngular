@@ -1,33 +1,31 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApiService } from 'src/app/services/api.service';
-import { ModalService } from 'src/app/services/modal.service';
-import { ModaltemplateComponent } from '../modaltemplate/modaltemplate.component';
+import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-artefacto',
-  templateUrl: './artefacto.component.html',
-  styleUrls: ['./artefacto.component.css']
+  selector: 'app-venta',
+  templateUrl: './venta.component.html',
+  styleUrls: ['./venta.component.css']
 })
-export class ArtefactoComponent implements OnInit {
+export class VentaComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
-  constructor(public service:ApiService, public dialog: MatDialog, public modalservice: ModalService) { 
+  constructor(public service:ApiService) {
     this.dataSource = new MatTableDataSource()
-  }
-  public displayedColumns: string[];
+   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+   public displayedColumns: string[];
+
+   @ViewChild(MatPaginator) paginator: MatPaginator;
+   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
     this.get();
   }
 
   public async get(){
-    await this.service.getAll("Articles").then((res)=>{
+    await this.service.getAll("Sales").then((res)=>{
       for (let index = 0; index < res.length; index ++){
         this.loadTable([res[index]])
       }        
@@ -52,14 +50,6 @@ export class ArtefactoComponent implements OnInit {
       this.dataSource.paginator.firstPage();
       
     }
-  }
-
-  openDialog() {
-    this.modalservice.titulo="artefacto"
-    this.dialog.open(ModaltemplateComponent,{
-      width: 'auto',
-      height: 'auto'
-    });
   }
 
 }

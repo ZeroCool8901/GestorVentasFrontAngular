@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 5%;
+  }
+
+  .btn-wrap {
+    width: 98%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 2rem 1rem 0;
+}
+
+.btn-wrap > button {
+ background-color: #0e335b;
+}
+  .btn-wrap > h1 {
+    margin-left: 1.5rem;
+    color: #0e335b;
+   }
