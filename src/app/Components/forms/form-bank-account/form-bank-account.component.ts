@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  selector: 'app-form-bank-account',
+  templateUrl: './form-bank-account.component.html',
+  styleUrls: ['./form-bank-account.component.css']
 })
-export class FormularioComponent {
+export class FormBankAccountComponent {
   addressForm = this.fb.group({
-    nameClient: [null,Validators.required],
+    company: null,
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
     address: [null, Validators.required],

@@ -20,25 +20,29 @@ import { TableComponent } from './Components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { FormularioComponent } from './Components/formulario/formulario.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClienteComponent } from './Components/cliente/cliente.component';
-import { FormClientComponent } from './Components/cliente/form-client/form-client.component';
+import { FormClientComponent } from './Components/forms/form-client/form-client.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ArtefactoComponent } from './Components/artefacto/artefacto.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ContratistaComponent } from './contratista/contratista.component';
-import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
-import { VentaComponent } from './venta/venta.component';
-import { ServicioComponent } from './servicio/servicio.component';
-import { UsuarioComponent } from './usuario/usuario.component';
+import { ContratistaComponent } from './Components/contratista/contratista.component';
+import { CuentaBancariaComponent } from './Components/cuenta-bancaria/cuenta-bancaria.component';
+import { VentaComponent } from './Components/venta/venta.component';
+import { ServicioComponent } from './Components/servicio/servicio.component';
+import { UsuarioComponent } from './Components/usuario/usuario.component';
 import { ModaltemplateComponent } from './Components/modaltemplate/modaltemplate.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { FormArticleComponent } from './Components/artefacto/form-article/form-article.component';
+import { FormArticleComponent } from './Components/forms/form-article/form-article.component';
+import { FormContractorComponent } from './Components/forms/form-contractor/form-contractor.component';
+import { FormBankAccountComponent } from './Components/forms/form-bank-account/form-bank-account.component';
+import { FormSaleComponent } from './Components/forms/form-sale/form-sale.component';
+import { FormServiceComponent } from './Components/forms/form-service/form-service.component';
+import { FormUserComponent } from './Components/forms/form-user/form-user.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,6 @@ import { FormArticleComponent } from './Components/artefacto/form-article/form-a
     MenuComponent,
     DashboardComponent,
     TableComponent,
-    FormularioComponent,
     ClienteComponent,
     FormClientComponent,
     LoginComponent,
@@ -57,7 +60,12 @@ import { FormArticleComponent } from './Components/artefacto/form-article/form-a
     ServicioComponent,
     UsuarioComponent,
     ModaltemplateComponent,
-    FormArticleComponent
+    FormArticleComponent,
+    FormContractorComponent,
+    FormBankAccountComponent,
+    FormSaleComponent,
+    FormServiceComponent,
+    FormUserComponent
     
   ],
   imports: [

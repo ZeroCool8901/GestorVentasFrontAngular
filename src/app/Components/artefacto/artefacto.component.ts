@@ -42,6 +42,7 @@ export class ArtefactoComponent implements OnInit {
     for (let column in data[0]) {
       this.displayedColumns.push(column)    
     }
+    this.displayedColumns.push("Acciones")
   }
   
   applyFilter(event: Event){
@@ -61,5 +62,14 @@ export class ArtefactoComponent implements OnInit {
       height: 'auto'
     });
   }
+
+  modalAcciones() {
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    }
+
+    );
+ }
 
 }

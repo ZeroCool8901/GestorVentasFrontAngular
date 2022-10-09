@@ -2,14 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApiService } from '../services/api.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-cuenta-bancaria',
-  templateUrl: './cuenta-bancaria.component.html',
-  styleUrls: ['./cuenta-bancaria.component.css']
+  selector: 'app-servicio',
+  templateUrl: './servicio.component.html',
+  styleUrls: ['./servicio.component.css']
 })
-export class CuentaBancariaComponent implements OnInit {
+export class ServicioComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   constructor(public service:ApiService) { 
     this.dataSource = new MatTableDataSource()
@@ -25,7 +25,7 @@ export class CuentaBancariaComponent implements OnInit {
   }
 
   public async get(){
-    await this.service.getAll("BankAccounts").then((res)=>{
+    await this.service.getAll("Services").then((res)=>{
       for (let index = 0; index < res.length; index ++){
         this.loadTable([res[index]])
       }        

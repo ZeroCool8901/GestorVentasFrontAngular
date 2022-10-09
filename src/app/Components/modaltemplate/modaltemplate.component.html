@@ -7,7 +7,7 @@
     <app-form-client></app-form-client>
   </div>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="btn-wrap">
   <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Enviar</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onSubmit()">Enviar</button>
 </div>

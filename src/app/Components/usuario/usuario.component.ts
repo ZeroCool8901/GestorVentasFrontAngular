@@ -2,30 +2,30 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApiService } from '../services/api.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-servicio',
-  templateUrl: './servicio.component.html',
-  styleUrls: ['./servicio.component.css']
+  selector: 'app-usuario',
+  templateUrl: './usuario.component.html',
+  styleUrls: ['./usuario.component.css']
 })
-export class ServicioComponent implements OnInit {
+export class UsuarioComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   constructor(public service:ApiService) { 
     this.dataSource = new MatTableDataSource()
   }
 
   public displayedColumns: string[];
-
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
+  
   ngOnInit(): void {
     this.get();
   }
 
   public async get(){
-    await this.service.getAll("Services").then((res)=>{
+    await this.service.getAll("Users").then((res)=>{
       for (let index = 0; index < res.length; index ++){
         this.loadTable([res[index]])
       }        

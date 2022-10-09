@@ -7,8 +7,15 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
       <div matColumnDef="{{disCol}}" *ngFor="let disCol of displayedColumns">
-        <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
-        <td mat-cell *matCellDef="let element">{{element[disCol]}}</td>
+        <div *ngIf="disCol!='Acciones'">
+          <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
+          <td mat-cell *matCellDef="let element">{{element[disCol]}}</td>
+        </div>
+        <div *ngIf="disCol=='Acciones'">
+          <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
+          <td mat-cell *matCellDef="let element"></td>
+          <button mat-raised-button color="primary">Crear Artículo</button>
+        </div>
       </div>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -33,3 +40,4 @@
 <div class="btn-wrap">
   <button mat-raised-button color="primary" (click)="openDialog()">Crear Artículo</button>
 </div>
+

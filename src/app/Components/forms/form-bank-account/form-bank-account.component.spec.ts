@@ -7,15 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
-import { FormularioComponent } from './formulario.component';
+import { FormBankAccountComponent } from './form-bank-account.component';
 
-describe('FormularioComponent', () => {
-  let component: FormularioComponent;
-  let fixture: ComponentFixture<FormularioComponent>;
+describe('FormBankAccountComponent', () => {
+  let component: FormBankAccountComponent;
+  let fixture: ComponentFixture<FormBankAccountComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormularioComponent ],
+      declarations: [ FormBankAccountComponent ],
       imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
@@ -29,7 +29,7 @@ describe('FormularioComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormularioComponent);
+    fixture = TestBed.createComponent(FormBankAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
