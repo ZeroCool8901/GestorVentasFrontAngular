@@ -7,6 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ModaltemplateComponent } from '../modaltemplate/modaltemplate.component';
 import { ModalService } from 'src/app/services/modal.service';
+import { Cliente } from 'src/app/Models/cliente.model';
 
 @Component({
   selector: 'app-cliente',
@@ -47,6 +48,7 @@ export class ClienteComponent implements OnInit{
     for (let column in data[0]) {
       this.displayedColumns.push(column)    
     }
+    this.displayedColumns.push("Acciones")
   }
   
   applyFilter(event: Event){
@@ -67,6 +69,13 @@ export class ClienteComponent implements OnInit{
     });
   }
   
+  openDialogEdit(element: Cliente) {
+    this.modalservice.cliente=element
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    });
+  }
 
 }
 

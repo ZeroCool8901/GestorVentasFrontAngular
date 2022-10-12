@@ -38,16 +38,27 @@ titulo=""
     identificationNumber: this.addressForm.get('document')?.value,
 
     }
-    this.service.Post('Clients', Client);
-    Swal.fire({
-      title: "Registro realizado",
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      timer: 1500
-  });
 
+    if(this.addressForm.valid){
+      this.service.Post('Clients', Client);
+      Swal.fire({
+        title: "Registro realizado",
+        position: 'center',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    }else{
+      Swal.fire({
+        title: "FALLIDO",
+        position: 'center',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      });
+  
 
+    }
   }
 
 }
