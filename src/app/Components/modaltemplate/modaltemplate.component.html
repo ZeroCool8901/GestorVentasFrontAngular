@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{titulo}}</h1>
+<h1 mat-dialog-title></h1>
 <div mat-dialog-content>
   <div *ngIf="titulo=='artefacto'">
     <app-form-article></app-form-article>
@@ -8,6 +8,9 @@
   </div>
   <div *ngIf="titulo=='usuario'">
     <app-form-user></app-form-user>
+  </div>
+  <div *ngIf="titulo=='servicio'">
+    <app-form-service></app-form-service>
   </div>
 </div>
 <!-- <div mat-dialog-actions class="btn-wrap">

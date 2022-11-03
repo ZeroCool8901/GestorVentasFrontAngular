@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Cliente } from '../Models/cliente.model';
 
 @Injectable({
@@ -6,6 +7,8 @@ import { Cliente } from '../Models/cliente.model';
 })
 export class ModalService {
 titulo=""
-cliente:Cliente
+cliente:any
+accion = new BehaviorSubject("")
+
   constructor() { }
 }

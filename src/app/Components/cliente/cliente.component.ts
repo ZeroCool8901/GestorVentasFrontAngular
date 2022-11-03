@@ -63,18 +63,27 @@ export class ClienteComponent implements OnInit{
 
   openDialog() {
     this.modalservice.titulo="cliente"
+    this.modalservice.accion.next("crear")
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    }); 
+  }
+  
+  openDialogEdit(element: any) {
+    this.modalservice.titulo="cliente"
+    this.modalservice.accion.next("editar")
+    this.modalservice.cliente = element
     this.dialog.open(ModaltemplateComponent,{
       width: 'auto',
       height: 'auto'
     });
   }
-  
-  openDialogEdit(element: Cliente) {
-    this.modalservice.cliente=element
-    this.dialog.open(ModaltemplateComponent,{
-      width: 'auto',
-      height: 'auto'
-    });
+
+  delete(element: any){
+    const id = element.idClient
+    this.service.Delete("Clients", id)
+    window.location.reload()
   }
 
 }

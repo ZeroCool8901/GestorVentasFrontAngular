@@ -19,3 +19,15 @@
 a,span{
   color: #00325b !important;
 }
+
+.btn-wrap {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 2rem 1rem 0;
+}
+
+.btn-wrap > button {
+  background-color: #0e335b;
+  color: white;
+ }

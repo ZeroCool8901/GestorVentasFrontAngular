@@ -29,36 +29,7 @@ titulo=""
   }
 
   onSubmit(): void {
-    const Client= {
-    name: this.addressForm.get('firstName')?.value,
-    lastName: this.addressForm.get('lastName')?.value,
-    address: this.addressForm.get('address')?.value,
-    cel: this.addressForm.get('phone')?.value,
-    identificationType: this.addressForm.get('documentType')?.value,
-    identificationNumber: this.addressForm.get('document')?.value,
-
-    }
-
-    if(this.addressForm.valid){
-      this.service.Post('Clients', Client);
-      Swal.fire({
-        title: "Registro realizado",
-        position: 'center',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500
-    });
-    }else{
-      Swal.fire({
-        title: "FALLIDO",
-        position: 'center',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500
-      });
-  
-
-    }
+    
   }
 
 }

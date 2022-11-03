@@ -16,8 +16,8 @@
             <td mat-cell *matCellDef="let element">
               <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><img src="https://img.icons8.com/ios-filled/50/000000/engineering.png" width="25px" height="25px"></button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="openDialogEdit()">Editar</button>
-                <button mat-menu-item >Eliminar</button>
+                <button mat-menu-item (click)="openDialogEdit(element)">Editar</button>
+                <button mat-menu-item (click)="delete(element)">Eliminar</button>
               </mat-menu>
             </td>
 
@@ -33,7 +33,7 @@
         </tr>
       </table>
   
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </div>
   </div>
 

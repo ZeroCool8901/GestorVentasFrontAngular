@@ -10,6 +10,8 @@ import { CuentaBancariaComponent } from './Components/cuenta-bancaria/cuenta-ban
 import { ServicioComponent } from './Components/servicio/servicio.component';
 import { UsuarioComponent } from './Components/usuario/usuario.component';
 import { VentaComponent } from './Components/venta/venta.component';
+import { MenuComponent } from './Components/menu/menu.component';
+import { LoginComponent } from './Components/login/login.component';
 
 const routes: Routes = [
   {path:'Dashboard', component:DashboardComponent},
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path:'Cuenta Bancaria', component:CuentaBancariaComponent},
   {path:'Servicio', component:ServicioComponent},
   {path:'Usuario', component:UsuarioComponent},
-  {path:'Venta', component:VentaComponent}
+  {path:'Venta', component:VentaComponent},
+  {path:'Menu', component:MenuComponent},
+  {path:'Login', component:LoginComponent},
 ];
 
 
