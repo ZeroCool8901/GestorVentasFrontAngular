@@ -21,13 +21,13 @@ a,span{
 }
 
 .btn-wrap {
-  width: 10%;
+  width: 5%;
   display: flex;
   justify-content: flex-end;
   margin: 1rem 2rem 1rem 0;
 }
 
-.btn-wrap > button {
+.mat-toolbar > button {
   background-color: #0e335b;
   color: white;
  }

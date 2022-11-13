@@ -3,6 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { ModaltemplateComponent } from '../modaltemplate/modaltemplate.component';
+import { ModalService } from 'src/app/services/modal.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contratista',
@@ -12,7 +15,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class ContratistaComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   
-  constructor(public service:ApiService) {
+  constructor(public service:ApiService, public dialog: MatDialog, public modalservice: ModalService) {
     this.dataSource = new MatTableDataSource()
    }
 
@@ -51,6 +54,31 @@ export class ContratistaComponent implements OnInit {
       this.dataSource.paginator.firstPage();
       
     }
+  }
+
+  openDialog() {
+    this.modalservice.titulo="contratista"
+    this.modalservice.accion.next("crear")
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    }); 
+  }
+  
+  openDialogEdit(element: any) {
+    this.modalservice.titulo="cliente"
+    this.modalservice.accion.next("editar")
+    this.modalservice.cliente = element
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    });
+  }
+
+  delete(element: any){
+    const id = element.idClient
+    this.service.Delete("Contractors", id)
+    window.location.reload()
   }
 
 }

@@ -47,7 +47,7 @@ export class LoginComponent{
         title: 'Hecho',
         text: 'Logueo Exitoso'
       })
-      this.router.navigateByUrl('Cliente');
+      this.router.navigateByUrl('cliente');
       this.loginservice.user.next(this.user);
       this.loginservice.login.next('login');
 

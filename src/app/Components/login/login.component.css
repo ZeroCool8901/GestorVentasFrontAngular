@@ -25,4 +25,17 @@
   .button {
     display: flex;
     justify-content: flex-end;
+    
   }
+
+  .button > button{
+    background-color: #0e335b;
+    color: white;
+  }
+
+  .login{
+    display: flex;
+    justify-content: center;
+  }
+
+  

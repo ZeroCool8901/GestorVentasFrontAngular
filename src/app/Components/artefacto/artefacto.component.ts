@@ -57,19 +57,27 @@ export class ArtefactoComponent implements OnInit {
 
   openDialog() {
     this.modalservice.titulo="artefacto"
+    this.modalservice.accion.next("crear")
     this.dialog.open(ModaltemplateComponent,{
       width: 'auto',
       height: 'auto'
     });
   }
 
-  modalAcciones() {
+  openDialogEdit(element: any) {
+    this.modalservice.titulo="artefacto"
+    this.modalservice.accion.next("editar")
+    this.modalservice.articulo = element
     this.dialog.open(ModaltemplateComponent,{
       width: 'auto',
       height: 'auto'
-    }
+    });
+  }
 
-    );
- }
+  delete(element: any){
+    const id = element.idArticle
+    this.service.Delete("Articles", id)
+    window.location.reload()
+  }
 
 }

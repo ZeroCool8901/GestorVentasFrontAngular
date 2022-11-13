@@ -8,6 +8,7 @@ import { Cliente } from '../Models/cliente.model';
 export class ModalService {
 titulo=""
 cliente:any
+articulo:any
 accion = new BehaviorSubject("")
 
   constructor() { }
