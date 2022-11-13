@@ -9,6 +9,7 @@ export class ModalService {
 titulo=""
 cliente:any
 articulo:any
+servicio:any
 accion = new BehaviorSubject("")
 
   constructor() { }

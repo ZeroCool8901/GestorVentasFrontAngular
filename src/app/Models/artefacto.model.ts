@@ -1,5 +1,5 @@
 export interface Artefacto {
-    IdArticle: string
+    idArticle: string
     name: string
     price: number
     brand: string

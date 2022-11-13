@@ -58,10 +58,27 @@ export class ServicioComponent implements OnInit {
 
   openDialog() {
     this.modalservice.titulo="servicio"
+    this.modalservice.accion.next("crear")
     this.dialog.open(ModaltemplateComponent,{
       width: 'auto',
       height: 'auto'
     });
+  }
+
+  openDialogEdit(element: any) {
+    this.modalservice.titulo="servicio"
+    this.modalservice.accion.next("editar")
+    this.modalservice.servicio = element
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    });
+  }
+
+  delete(element: any){
+    const id = element.idService
+    this.service.Delete("Services", id)
+    window.location.reload()
   }
 
 }

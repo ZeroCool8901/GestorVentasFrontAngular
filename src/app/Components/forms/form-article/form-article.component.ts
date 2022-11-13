@@ -70,6 +70,7 @@ export class FormArticleComponent {
     }else{
       if(this.addressForm.valid){
         const article = {
+          idArticle: this.modalservice.articulo.idArticle,
           name: this.addressForm.get('nombre')?.value,
           price: this.addressForm.get('precio')?.value,
           brand: this.addressForm.get('marca')?.value,
@@ -78,7 +79,7 @@ export class FormArticleComponent {
           
         }
         
-        this.service.Put("Articles", article, this.modalservice.articulo.IdArticle)
+        this.service.Put("Articles", article, this.modalservice.articulo.idArticle)
         Swal.fire({
           title: "Registro editado",
           position: 'center',

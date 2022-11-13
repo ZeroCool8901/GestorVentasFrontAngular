@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
+import { ModalService } from 'src/app/services/modal.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,36 +17,74 @@ export class FormServiceComponent {
 
   hasUnitNumber = false;
 
-  
-  constructor(private fb: FormBuilder, public service: ApiService) {}
+  title = ""
+
+  constructor(private fb: FormBuilder, public service: ApiService, public modalservice: ModalService) { }
+
+  ngOnInit(): void {
+
+    this.modalservice.accion.subscribe((res) => {
+      this.title = res;
+      if (res == 'editar') {
+        this.addressForm.controls['tipo'].setValue(this.modalservice.servicio.type)
+        this.addressForm.controls['estado'].setValue(this.modalservice.servicio.state)
+      }
+    })
+  }
+
 
   onSubmit(): void {
-    const Service = {
-      name: this.addressForm.get('nombre')?.value,
-      price: this.addressForm.get('precio')?.value,
-      brand: this.addressForm.get('marca')?.value,
-      cant: this.addressForm.get('cantidad')?.value,
-      serialNumber: this.addressForm.get('serial')?.value,
+    if (this.modalservice.accion.value == "crear") {
+      if (this.addressForm.valid) {
+        const Servicio = {
+          type: this.addressForm.get('tipo')?.value,
+          state: this.addressForm.get('estado')?.value
+        }
+        this.service.Post("Services", Servicio)
 
-    }
-
-    if (this.addressForm.valid) {
-      this.service.Post('Services', Service);
-      Swal.fire({
-        title: "Registro realizado",
-        position: 'center',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500
-      });
+        Swal.fire({
+          title: "Registro realizado",
+          position: 'center',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        Swal.fire({
+          title: "NO SE PUEDE CREAR REGISTRO",
+          position: 'center',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
     } else {
-      Swal.fire({
-        title: "FALLIDO",
-        position: 'center',
-        icon: 'error',
-        showConfirmButton: false,
-        timer: 1500
-      });
+      if (this.addressForm.valid) {
+        const Servicio = {
+          idService: this.modalservice.servicio.idService,
+          type: this.addressForm.get('tipo')?.value,
+          state: this.addressForm.get('estado')?.value,
+        }
+
+        this.service.Put("Services", Servicio, this.modalservice.servicio.idService)
+        Swal.fire({
+          title: "Registro editado",
+          position: 'center',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        Swal.fire({
+          title: "NO SE PUDO EDITAR",
+          position: 'center',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
     }
+    window.location.reload()
+
   }
 }
