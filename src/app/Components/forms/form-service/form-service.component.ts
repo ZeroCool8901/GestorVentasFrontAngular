@@ -17,6 +17,11 @@ export class FormServiceComponent {
 
   hasUnitNumber = false;
 
+  estado = [
+    { name: 'Activo', abbreviation: 1 },
+    { name: 'Inactivo', abbreviation: 0 }
+  ];
+
   title = ""
 
   constructor(private fb: FormBuilder, public service: ApiService, public modalservice: ModalService) { }
@@ -38,7 +43,7 @@ export class FormServiceComponent {
       if (this.addressForm.valid) {
         const Servicio = {
           type: this.addressForm.get('tipo')?.value,
-          state: this.addressForm.get('estado')?.value
+          state: Boolean(this.addressForm.get('estado')?.value) 
         }
         this.service.Post("Services", Servicio)
 
@@ -63,7 +68,7 @@ export class FormServiceComponent {
         const Servicio = {
           idService: this.modalservice.servicio.idService,
           type: this.addressForm.get('tipo')?.value,
-          state: this.addressForm.get('estado')?.value,
+          state: Boolean(this.addressForm.get('estado')?.value) 
         }
 
         this.service.Put("Services", Servicio, this.modalservice.servicio.idService)

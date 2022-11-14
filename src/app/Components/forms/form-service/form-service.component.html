@@ -13,15 +13,17 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Estado" formControlName="estado">
-            <mat-error *ngIf="addressForm.controls['estado'].hasError('required')">
-              Este campo es <strong>Obligatorio</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Estado" formControlName="estado">
+            <mat-option *ngFor="let state of estado" [value]="state.abbreviation">
+              {{ state.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['estado'].hasError('required')">
+            Este campo es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+       </div>
       <mat-card-actions class="btn-wrap">
         <button mat-raised-button mat-dialog-close color="primary" type="submit">Guardar</button>
         <button mat-raised-button mat-dialog-close color="primary">Cancelar</button>

@@ -30,6 +30,8 @@ export class FormClientComponent implements OnInit {
     { name: 'NIT (Sin digito de verificación)', abbreviation: 'NIT' }
   ];
 
+  
+
   title = ""
 
   constructor(private fb: FormBuilder, public router: Router, public service: ApiService,  public modalservice: ModalService) { }
