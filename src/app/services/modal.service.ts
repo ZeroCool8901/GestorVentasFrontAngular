@@ -10,6 +10,8 @@ titulo=""
 cliente:any
 articulo:any
 servicio:any
+venta:any
+cuentabanco:any
 accion = new BehaviorSubject("")
 
   constructor() { }

@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { ModaltemplateComponent } from '../modaltemplate/modaltemplate.component';
 
 @Component({
   selector: 'app-venta',
@@ -11,7 +14,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class VentaComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
-  constructor(public service:ApiService) {
+  constructor(public service:ApiService, public dialog: MatDialog, public modalservice: ModalService) {
     this.dataSource = new MatTableDataSource()
    }
 
@@ -50,6 +53,15 @@ export class VentaComponent implements OnInit {
       this.dataSource.paginator.firstPage();
       
     }
+  }
+
+  openDialog() {
+    this.modalservice.titulo="venta"
+    this.modalservice.accion.next("crear")
+    this.dialog.open(ModaltemplateComponent,{
+      width: 'auto',
+      height: 'auto'
+    }); 
   }
 
 }
